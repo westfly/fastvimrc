@@ -20,7 +20,7 @@ if count(g:bundle_groups, 'golang')
     " 1. vim a.go
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
-    Plug 'fatih/vim-go', {'for': 'go'}
+    Bundle 'fatih/vim-go', {'for': 'go'}
 endif
 if count(g:bundle_groups, 'json')
     "json
@@ -57,3 +57,7 @@ call vundle#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+" 自定义的自动补全 包括一些自动高亮的插件"
+Plugin 'westfly/vim-rabbit'
