@@ -2,7 +2,7 @@
 " set the runtime path to include Vundle and initialize
 " 将该工程软链到 ~/.vim下
 set nocompatible
-filetype off " required! turn off
+"filetype off " required! turn off
 set rtp+=~/.vim/bundle/Vundle.vim
 " call vundle#begin()
 call vundle#begin('~/.vim/bundle')
@@ -22,6 +22,11 @@ if count(g:bundle_groups, 'golang')
     " vimgo  https://github.com/fatih/vim-go
     Bundle 'fatih/vim-go', {'for': 'go'}
     Plugin 'jnwhiteh/vim-golang'
+    " golang
+    let g:go_highlight_operators = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_structs = 1
 endif
 if count(g:bundle_groups, 'json')
     "json
@@ -58,7 +63,6 @@ call vundle#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-
 
 " 自定义的自动补全 包括一些自动高亮的插件"
 Plugin 'westfly/vim-rabbit'
