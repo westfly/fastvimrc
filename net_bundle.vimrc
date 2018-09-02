@@ -21,6 +21,7 @@ if count(g:bundle_groups, 'golang')
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
     Bundle 'fatih/vim-go', {'for': 'go'}
+    Plugin 'jnwhiteh/vim-golang'
 endif
 if count(g:bundle_groups, 'json')
     "json
