@@ -82,4 +82,53 @@ else
     Plugin 'w0rp/ale'
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+"               自定义函数
+""""""""""""""""""""""""""""""""""""""""""""""""
+" 当新添加的shell脚本添加可执行权限
+function AddExecuteMode()
+  if getline(1) =~ "^#!/bin/*"
+    silent !chmod a+x <afile>
+  endif
+endfunction
+au BufWritePost * call AddExecuteMode()
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                Color & Front solarized
+""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'altercation/vim-colors-solarized'
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+
+" 快速去行尾空格 [, + <Space>]
+" Plug 'bronson/vim-trailing-whitespace'
+" easyalign
+""""""""""""""""""""""""""""""""""""""""""""""""
+" 快速赋值语句对齐
+""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'junegunn/vim-easy-align'
+"http://www.wklken.me/posts/2015/06/07/vim-plugin-easyalign.html
+" vi\a[=,space,,etc]
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+if !exists('g:easy_align_delimiters')
+    let g:easy_align_delimiters = {}
+endif
+let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+" quick movement
+" easymotion
+""""""""""""""""""""""""""""""""""""""""""""""""
+"   更高效的移动 [,, + w/fx/h/j/k/l]
+""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'Lokaltog/vim-easymotion'
+" 更改快捷键 http://www.dreamxu.com/books/vim/plugin/vim-easymotion.html
+map f <Plug>(easymotion-prefix)
+map ff <Plug>(easymotion-f)
+map fs <Plug>(easymotion-s)
+map fl <Plug>(easymotion-lineforward)
+map fj <Plug>(easymotion-j)
+map fk <Plug>(easymotion-k)
+map fh <Plug>(easymotion-linebackward)
+" 忽略大小写
+let g:EasyMotion_smartcase = 1
