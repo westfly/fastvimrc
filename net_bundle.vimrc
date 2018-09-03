@@ -66,3 +66,20 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " 自定义的自动补全 包括一些自动高亮的插件"
 Plugin 'westfly/vim-rabbit'
+
+" syntastic
+if v:version < 800
+    Plugin 'scrooloose/syntastic'
+else
+  " 重启 :YcmRestartServer
+    Plugin 'Valloric/YouCompleteMe'
+    if has("python3")
+        let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+    else
+        let g:ycm_server_python_interpreter='/usr/bin/python'
+    end
+    let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
+    Plugin 'w0rp/ale'
+endif
+
+
